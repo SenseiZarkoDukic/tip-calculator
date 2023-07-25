@@ -1,23 +1,36 @@
 import { useState } from "react";
 
-function App() {
+export default function App() {
   const [bill, setBill] = useState(0);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div className="App">
-      <BillInput bill={bill} onBill={setBill} />
-      <SelectPercentage />
-      <SelectPercentage />
-      <Output />
-      <Reset />
+      <form onSubmit={handleSubmit}>
+        <BillInput bill={bill} onBill={setBill}>
+          How much was the bill?
+        </BillInput>
+        <SelectPercentage />
+        <SelectPercentage />
+        <Output />
+        <Reset />
+      </form>
     </div>
   );
 }
 
-export default App;
+function BillInput({ bill, onBill, children }) {
+  const handleChange = (e) => onBill(e.target.value);
+  console.log(bill);
 
-function BillInput() {
-  return <div></div>;
+  return (
+    <div>
+      {children}
+      <input type="text" value={bill} onChange={handleChange} />
+    </div>
+  );
 }
 
 function SelectPercentage() {
