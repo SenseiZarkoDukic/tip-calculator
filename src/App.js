@@ -68,7 +68,7 @@ function Output({ bill, totalTip, totalPayment }) {
     <div>
       <p className="output">
         <strong>
-          You pay ${totalPayment} ($${bill} + ${totalTip} tip)
+          You pay ${totalPayment} (${bill} + ${totalTip} tip)
         </strong>
       </p>
     </div>
