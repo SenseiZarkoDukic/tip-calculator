@@ -1,22 +1,33 @@
+import { useState } from "react";
+
 function App() {
+  const [bill, setBill] = useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BillInput bill={bill} onBill={setBill} />
+      <SelectPercentage />
+      <SelectPercentage />
+      <Output />
+      <Reset />
     </div>
   );
 }
 
 export default App;
+
+function BillInput() {
+  return <div></div>;
+}
+
+function SelectPercentage() {
+  return <div></div>;
+}
+
+function Output() {
+  return;
+}
+
+function Reset() {
+  return;
+}
