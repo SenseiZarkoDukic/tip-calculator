@@ -27,8 +27,9 @@ export default function App() {
           How did your friend like the service?
         </SelectPercentage>
 
-        <Output />
-        <Reset />
+        <Output totalTip={totalTip} bill={bill} totalPayment={totalPayment} />
+
+        <Reset onBill={setBill} onMyTip={setMyTip} onFriendTip={setFriendTip} />
       </form>
     </div>
   );
@@ -62,10 +63,27 @@ function SelectPercentage({ bill, children, onTip }) {
   );
 }
 
-function Output() {
-  return;
+function Output({ bill, totalTip, totalPayment }) {
+  return (
+    <div>
+      <p className="output">
+        <strong>
+          You pay ${totalPayment} ($${bill} + ${totalTip} tip)
+        </strong>
+      </p>
+    </div>
+  );
 }
 
-function Reset() {
-  return;
+function Reset({ onBill, onMyTip, onFriendTip }) {
+  const handleClick = () => {
+    onBill(0);
+    onMyTip(0);
+    onFriendTip(0);
+  };
+  return (
+    <div>
+      <button onClick={handleClick}>Reset</button>
+    </div>
+  );
 }

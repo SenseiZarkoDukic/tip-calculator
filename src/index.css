@@ -18,6 +18,14 @@ select {
   font-size: 16px;
 }
 
+.App {
+  padding: 10px;
+}
+
 .questions {
   font-size: 20px;
+}
+
+.output {
+  font-size: 30px;
 }
